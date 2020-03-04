@@ -18,6 +18,8 @@ contract Govt {
 
         if (vote[h].isVoted) revert("Voter  Already Voted");
         else vote[h].isVoted = false;
+        return true;
+
     }
 
     function addVote(string memory hsh, uint256 party) public returns (bool) {
@@ -42,6 +44,12 @@ contract Govt {
         assembly {
             result := mload(add(source, 32))
         }
+    }
+
+    function getParty(string memory hsh) public returns (uint256) {
+        bytes32 h = stringToBytes32(hsh);
+        if (vote[h].isVoted == false) revert("Not Voted");
+        else return vote[h].partyID;
     }
 
 }
