@@ -12,5 +12,9 @@ contract voteCoin is ERC20Mintable {
         _mint(msg.sender, INITIAL_SUPPLY);
 
     }
+    function addmint(address account) public returns(bool) {
+        addMinter(account);
+        return true;
+    }
 
 }

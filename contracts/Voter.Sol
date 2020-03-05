@@ -22,7 +22,6 @@ contract Voter {
     constructor(address _token) public {
         partyToken = _token;
     }
-
     function addHash(string memory hsh) public returns (uint8) {
         bytes32 h = stringToBytes32(hsh);
 
