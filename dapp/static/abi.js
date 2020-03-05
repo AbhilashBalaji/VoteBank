@@ -3,6 +3,29 @@ var abi = [
 		"constant": false,
 		"inputs": [
 			{
+				"name": "hshVoterID",
+				"type": "string"
+			},
+			{
+				"name": "partyID",
+				"type": "uint256"
+			}
+		],
+		"name": "Vote",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
 				"name": "hsh",
 				"type": "string"
 			}
@@ -42,6 +65,17 @@ var abi = [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"name": "_token",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -57,40 +91,6 @@ var abi = [
 		],
 		"name": "partyAdded",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"name": "_token",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "hshVoterID",
-				"type": "string"
-			},
-			{
-				"name": "partyID",
-				"type": "uint256"
-			}
-		],
-		"name": "Vote",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bytes32"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
