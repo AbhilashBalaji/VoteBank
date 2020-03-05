@@ -1,0 +1,22 @@
+{
+  "name": "votebank",
+  "version": "1.0.0",
+  "description": "Vote Bank is a fully decentralised and transparent voting system designed to scale.",
+  "main": "truffle-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbhilashBalaji/VoteBank.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbhilashBalaji/VoteBank/issues"
+  },
+  "homepage": "https://github.com/AbhilashBalaji/VoteBank#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^2.5.0"
+  }
+}
