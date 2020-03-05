@@ -47,8 +47,13 @@ contract Voter {
         require(partyMap[partyID] != address(0), "Unknown Party ID");
         require(isvoted[h] < 1, "Voter Not present  already voted");
         emit voterAdded(hshVoterID, partyID);
+<<<<<<< HEAD:contracts/Voter.sol
         isVoted[h] = 1;
         return _partyToken(partyID);
+=======
+        isVoted[h] = -1;
+        return _partyToken(hshVoterID,partyID);
+>>>>>>> b1675b0d66986a468f99bc8a23ce80858db07dc1:contracts/Voter.Sol
 
     }
 
