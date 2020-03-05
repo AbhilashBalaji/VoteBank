@@ -1,13 +1,13 @@
 from flask import Flask, render_template, send_from_directory
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+   return render_template('index.html')
+
 @app.route('/vote')
 def vote():
    return render_template('vote.html')
-
-@app.route('/count')
-def count():
-   return render_template('count.html')
 
 @app.route('/addParty')
 def addParty():
