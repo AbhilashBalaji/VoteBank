@@ -1,6 +1,11 @@
 # VoteBank
 Vote Bank is a fully decentralised and transparent voting system designed to scale.
 
+### Matic Testnet Addresses 
+``` https://testnetv3.matic.network ```  
+Voter : ``` 0x598F96E50C586F4B0C2Ab25C71F3031B2A2fF3d4 ``` \
+voteCoin : ``` 0x515bcCF2c46496cCFf32f073bDfcf4F325855a27 ```
+
 ### Build Instructions
 1. Install Dependencies 
 ```
