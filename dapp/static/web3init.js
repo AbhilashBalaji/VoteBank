@@ -11,7 +11,7 @@ var abi = [
 		"outputs": [
 			{
 				"name": "",
-				"type": "bool"
+				"type": "uint8"
 			}
 		],
 		"payable": false,
@@ -22,15 +22,15 @@ var abi = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "hsh",
-				"type": "string"
+				"name": "partyID",
+				"type": "uint256"
 			},
 			{
-				"name": "party",
-				"type": "uint256"
+				"name": "partyAddr",
+				"type": "address"
 			}
 		],
-		"name": "addVote",
+		"name": "addPartyMap",
 		"outputs": [
 			{
 				"name": "",
@@ -42,13 +42,72 @@ var abi = [
 		"type": "function"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "partyID",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "partyAddr",
+				"type": "address"
+			}
+		],
+		"name": "partyAdded",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_token",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"constant": false,
-		"inputs": [],
-		"name": "emitt",
-		"outputs": [],
+		"inputs": [
+			{
+				"name": "hshVoterID",
+				"type": "string"
+			},
+			{
+				"name": "partyID",
+				"type": "uint256"
+			}
+		],
+		"name": "Vote",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "hshVoterID",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "partyID",
+				"type": "uint256"
+			}
+		],
+		"name": "voterAdded",
+		"type": "event"
 	},
 	{
 		"anonymous": false,
@@ -61,60 +120,6 @@ var abi = [
 		],
 		"name": "hashAdded",
 		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"name": "hsh",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"name": "party",
-				"type": "uint256"
-			}
-		],
-		"name": "voteAdded",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"name": "testString",
-				"type": "string"
-			}
-		],
-		"name": "wee",
-		"type": "event"
-	},
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "hsh",
-				"type": "string"
-			}
-		],
-		"name": "getParty",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
 	}
 ]
 
@@ -126,7 +131,7 @@ if (typeof web3 !== 'undefined') {
     var web3 = new Web3(new Web3.providers.HttpProvider("127.0.0.1:8545"));
 }
 
-var aa = new web3.eth.Contract(abi, '0x34C2693989C37970D454E190849ec97C16cfcfe2');
+var aa = new web3.eth.Contract(abi, '0x598F96E50C586F4B0C2Ab25C71F3031B2A2fF3d4');
 
 async function account(){
 	return await web3.eth.getAccounts();
@@ -135,8 +140,8 @@ account().then(function(acc){
 	aa.defaultAccount = acc[0];
 })
 
-var Dagger = window.Dagger
-dagger = new Dagger('wss://ropsten.dagger.matic.network')
-dagger.on("latest:blockk.number", function(result) {
-	console.log("New block created: ", result);
-  });
+// var Dagger = window.Dagger
+// dagger = new Dagger('wss://ropsten.dagger.matic.network')
+// dagger.on("latest:blockk.number", function(result) {
+// 	console.log("New block created: ", result);
+//   });

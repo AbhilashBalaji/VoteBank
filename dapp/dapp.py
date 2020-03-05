@@ -5,6 +5,10 @@ app = Flask(__name__)
 def vote():
    return render_template('vote.html')
 
+@app.route('/count')
+def count():
+   return render_template('count.html')
+
 @app.route('/addParty')
 def addParty():
    return render_template('addParty.html')

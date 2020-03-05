@@ -1,5 +1,5 @@
 aa.events.hashAdded({
-    fromBlock: 0
+    fromBlock: 'latest'
 }, function(error, event){ console.log(event,error);})
 
 async function addHash(hash) {

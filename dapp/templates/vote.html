@@ -5,17 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
 </head>
 <body>
     <div class="jumbotron text-center" style="background-color:maroon; color:white;">
         <h1>Decentralised Voting System</h1>
-        <p>A fresh look at voting</p>
     </div>
     
-    <div class="container">
+    <div class="container jumbotron">
             <div class="row">
                 <div style="float: none; margin: 0 auto;">
                     <form>
@@ -24,9 +22,13 @@
                             <input type="text" class="form-control" id="voter_id">
                         </div>
                         <div class="row form-group">
-                            <select class="form-control" name="party">
-                                <option value="a">Party A</option>
-                                <option value="b">Party B</option>
+                            <select class="form-control" id="party_id" name="party">
+                                <option value="1">Party 1</option>
+                                <option value="2">Party 2</option>
+                                <option value="3">Party 3</option>
+                                <option value="4">Party 4</option>
+                                <option value="5">Party 5</option>
+                                <option value="6">Party 6</option>
                             </select>
                         </div>
                         <div class="row form-group">

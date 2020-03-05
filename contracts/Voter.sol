@@ -1,6 +1,6 @@
 pragma solidity 0.5.1;
 
-import  "./voteCoin.sol";
+import {voteCoin} from "./voteToken.sol";
 
 // library Library {
 //     struct vote {
@@ -12,7 +12,7 @@ import  "./voteCoin.sol";
 
 contract Voter {
     mapping(uint256 => address) partyMap;
-    mapping(bytes32 => int256) isvoted;
+    mapping(bytes32 => uint256) isvoted;
     address partyToken;
     voteCoin token;
     event partyAdded(uint256 partyID, address partyAddr);
@@ -47,15 +47,16 @@ contract Voter {
         require(partyMap[partyID] != address(0), "Unknown Party ID");
         require(isvoted[h] < 1, "Voter Not present  already voted");
         emit voterAdded(hshVoterID, partyID);
-        return _partyToken(hshVoterID,partyID);
+        isVoted[h] = 1;
+        return _partyToken(partyID);
 
     }
 
-    function _partyToken(string memory hshVoterID,uint256 partyID) internal returns (bytes32) {
+    function _partyToken(uint256 partyID) internal returns (bytes32) {
         token = voteCoin(partyToken);
         token.mint(partyMap[partyID], 1);
         string memory p = uint2str(partyID);
-        return keccak256(abi.encodePacked(hshVoterID, p));
+        return keccak256(hshVoterID, p);
     }
     // cast vote ; get returned a hash ; mint / canidate
 
