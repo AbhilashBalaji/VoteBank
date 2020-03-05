@@ -6,8 +6,7 @@ if (typeof web3 !== 'undefined') {
     var web3 = new Web3(new Web3.providers.HttpProvider("127.0.0.1:8545"));
 }
 
-var aa = new web3.eth.Contract(abi, '0x598F96E50C586F4B0C2Ab25C71F3031B2A2fF3d4');
-
+var aa = new web3.eth.Contract(abi, '0xcd2B23547056B19F3A6e0A388D346b57c2162Fea');
 async function account(){
 	return await web3.eth.getAccounts();
 }

@@ -3,7 +3,7 @@ aa.events.partyAdded({
 }, function(error, event){ console.log(event,error);})
 
 async function addParty(partyID, addr) {
-    return await aa.methods.addPartyMap(partyID, addr).send({from:aa.defaultAccount})
+    return await aa.methods.addPartyMap(Number(partyID), addr).send({from:aa.defaultAccount})
 }
 
 var p = document.getElementById('addParty');

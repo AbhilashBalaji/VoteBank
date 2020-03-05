@@ -5,7 +5,6 @@ aa.events.voterAdded({
 async function vote(hash, party_id) {
     return await aa.methods.Vote(hash, Number(party_id)).send({from:aa.defaultAccount})
 }
-
 var v = document.getElementById('castVote');
 v.addEventListener('click', function(){
 	var voter_id = document.getElementById('voter_id').value;
