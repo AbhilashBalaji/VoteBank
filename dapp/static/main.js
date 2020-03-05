@@ -115,13 +115,13 @@ aa.events.voteAdded({
     })
     .on('error', console.error);
 async function addHash() {
-    const result = await aa.methods.addHash('alok').send({from:'0xf95d46621aA70d877D0bA2BfeA699AcA6Da4519b'})
+	const result = await aa.methods.addHash('alok').send({ from:'0x4aE6d2A17C71018DC980177738fbB2f6f3B74470'})
     console.log(result)
 }
-// addHash();
+addHash();
 async function vote() {
-    const result = await aa.methods.addVote('alok', 2).send({from:'0xf95d46621aA70d877D0bA2BfeA699AcA6Da4519b'})
+	const result = await aa.methods.addVote('alok', 2).send({ from:'0x4aE6d2A17C71018DC980177738fbB2f6f3B74470'})
     console.log(result)
 }
-vote();
+// vote();
 

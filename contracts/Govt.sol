@@ -3,7 +3,7 @@ pragma solidity 0.5.1;
 library Library {
     struct vote {
         uint256 partyID;
-        bool isVoted;
+        uint8 isVoted;
     }
 }
 
@@ -14,23 +14,23 @@ contract Govt {
     mapping(bytes32 => Library.vote) vote;
     constructor() public {}
 
-    function addHash(string memory hsh) public returns (bool) {
+    function addHash(string memory hsh) public returns (uint8) {
         bytes32 h = stringToBytes32(hsh);
 
-        if (vote[h].isVoted) return false;
-        else vote[h].isVoted = false;
+        if (vote[h].isVoted == 1) return 0;
+        else vote[h].isVoted = 0;
         emit hashAdded(hsh);
-        return true;
+        return 1;
     }
 
-    function addVote(string memory hsh, uint256 party) public returns (bool) {
+    function addVote(string memory hsh, uint256 party) public returns (uint8) {
         bytes32 h = stringToBytes32(hsh);
-        if (vote[h].isVoted) return false;
+        if (vote[h].isVoted == 1) return 0;
         else {
             vote[h].partyID = party;
-            vote[h].isVoted = true;
+            vote[h].isVoted = 1;
             emit voteAdded(hsh, party);
-            return true;
+            return 1;
         }
     }
 
@@ -51,7 +51,7 @@ contract Govt {
 
     function getParty(string memory hsh) public view returns (uint256) {
         bytes32 h = stringToBytes32(hsh);
-        if (vote[h].isVoted == false) revert("Not Voted");
+        if (vote[h].isVoted == 0) revert("Not Voted");
         else return vote[h].partyID;
     }
 
