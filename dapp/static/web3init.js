@@ -6,7 +6,7 @@ if (typeof web3 !== 'undefined') {
     var web3 = new Web3(new Web3.providers.HttpProvider("127.0.0.1:8545"));
 }
 
-var aa = new web3.eth.Contract('<VOTER CONTRACT ABI>', '<VOTER CONTRACT ID>');
+var aa = new web3.eth.Contract(abi, '0x598F96E50C586F4B0C2Ab25C71F3031B2A2fF3d4');
 
 async function account(){
 	return await web3.eth.getAccounts();
@@ -14,9 +14,3 @@ async function account(){
 account().then(function(acc){
 	aa.defaultAccount = acc[0];
 })
-
-// var Dagger = window.Dagger
-// dagger = new Dagger('wss://ropsten.dagger.matic.network')
-// dagger.on("latest:blockk.number", function(result) {
-// 	console.log("New block created: ", result);
-//   });
